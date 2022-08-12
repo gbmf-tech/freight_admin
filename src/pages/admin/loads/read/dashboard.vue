@@ -384,7 +384,7 @@
                 <v-row>
                     <v-col cols="6" v-for="file in model.files" :key="file.id">
                         <p class="query text-14-60">{{ file.type.name }}:
-                            <a :href="`/storage/app/documents/`+ file.id_load +`/`+ file.filename" class="answer text-14" download v-html="file.filename"></a>
+                            <a :href="getEnv('VUE_APP_AXIOS_DOMAIN') + `/storage/documents/`+ file.id_load +`/`+ file.filename" class="answer text-14" download v-html="file.filename"></a>
                         </p>
                     </v-col>
                     <v-col cols="8">
@@ -398,7 +398,12 @@
 
 <script>
 export default {
-    props: ['model']
+    props: ['model'],
+	methods:{
+		getEnv(variable){
+			return process.env[variable]
+		}
+	}
 }
 </script>
 
