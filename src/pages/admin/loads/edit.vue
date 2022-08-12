@@ -6,7 +6,7 @@
                     Main Information
                 </div>
                 <v-row>
-                    <v-col cols="12" sm="4">
+                    <v-col cols="12" sm="3">
                         <label for="">Bill To:</label>
                         <text-field-component v-if="Load.customer" :value="Load.customer.company_name" readonly outlined flat hide-details/>
                         <autocomplete-component
@@ -28,11 +28,11 @@
                             </template>
                         </autocomplete-component>
                     </v-col>
-                    <v-col cols="12" md="4">
+                    <v-col cols="12" md="3">
                         <label for="">Reference Number</label>
                         <text-field-component v-model="Load.wo" outlined flat hide-details/>
                     </v-col>
-                    <v-col cols="12" md="4">
+                    <v-col cols="12" md="3">
                         <label for="">Status</label>
                         <v-select
                             v-model="Load.id_status"
@@ -45,6 +45,19 @@
                             class="mt-2"
                         ></v-select>
                     </v-col>
+	                <v-col cols="12" md="3">
+		                <label for="">Dispatcher</label>
+		                <v-select
+			                v-model="Load.id_user"
+			                :items="dispatchers"
+			                item-text="name"
+			                item-value="id"
+			                background-color="silver"
+			                outlined
+			                flat
+			                class="mt-2"
+		                ></v-select>
+	                </v-col>
                     <v-col cols="12" md="4">
                         <label for="">Rate</label>
                         <text-field-component
@@ -616,6 +629,7 @@
 <script>
 import { serialize } from 'object-to-formdata';
 
+import Vue from 'vue';
 import gettersMixin from '@/mixins/gettersMixin'
 import AutocompleteComponent from '@/components/Base/CustomAutocomplete'
 import DatepickerComponent from '@/components/Base/CustomDatepicker'
@@ -781,10 +795,11 @@ export default {
                 desc: 'When the location is a residential address'
             },
         ],
+	    dispatchers: [],
         itemTypes: ['LTL', 'Pallets', 'TL', 'Pallet (48"x40")', 'Pallet (48"x48")', 'Box', 'Crate', 'Bundle', 'Drum', 'Roll', 'Bale'],
     }),
     created() {
-        this.initialize()
+        this.initialize();
     },
     watch: {
         'Load.sum_charges': function(){
@@ -799,7 +814,7 @@ export default {
             this.getEquipments();
             this.getTrucks();
             this.getTrailers();
-
+	        this.getDispatchers();
         },
 
         getLoad(){
