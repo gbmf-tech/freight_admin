@@ -13,9 +13,9 @@
                             v-if="!Load.customer"
                             @setItem="setCustomer"
                             :request="{
-                                url: process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/customers/v1/customer/'
+                                url: getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/customers/v1/customer/'
                             }"
-                            postUrl="/api/sudo/customers/v1/customer/"
+                            :postUrl="getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/customers/v1/customer/'"
                             label="Enter Customer Name Phone Address Zip or Email"
                             item-text="company_name"
                         >
@@ -224,9 +224,9 @@
                             v-if="!Load.executor"
                             @setItem="setExecutor"
                             :request="{
-                                url: Load.is_carrier ? process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/carriers/v1/carrier/' : process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/drivers/v1/driver/'
+                                url: Load.is_carrier ? getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/carriers/v1/carrier/' : getEnv('VUE_APP_AXIOS_DOMAIN') +  '/api/sudo/drivers/v1/driver/'
                             }"
-                            :postUrl="Load.is_carrier ? process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/carriers/v1/carrier/' : process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/drivers/v1/driver/'"
+                            :postUrl="Load.is_carrier ? getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/carriers/v1/carrier/' : getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/drivers/v1/driver/'"
 
                             :placeholder="Load.is_carrier ? 'Enter Carrier Name Phone Address or Email' : 'Enter Driver Name Phone Address or Email'"
                         >
@@ -314,10 +314,10 @@
                                         @setItem="setShipper"
                                         :index="index"
                                         :request="{
-                                            url: process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/warehouses/v1/warehouse/',
+                                            url: getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/warehouses/v1/warehouse/',
                                             type: 'is_shipper'
                                         }"
-                                        postUrl="/api/sudo/warehouses/v1/warehouse/"
+                                        :postUrl="getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/warehouses/v1/warehouse/'"
 
                                         label="Enter Shipper Name Address or Zip"
                                     >
@@ -472,9 +472,9 @@
                                         @setItem="setBroker"
                                         :index="index"
                                         :request="{
-                                            url: process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/custombrokers/v1/custombroker/'
+                                            url: getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/custombrokers/v1/custombroker/'
                                         }"
-                                        postUrl="/api/sudo/custombrokers/v1/custombroker/"
+                                        :postUrl="getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/custombrokers/v1/custombroker/'"
 
                                         label="Enter Customs Broker Address or Zip"
                                     >
@@ -511,10 +511,10 @@
                                         @setItem="setConsignee"
                                         :index="index"
                                         :request="{
-                                            url: process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/warehouses/v1/warehouse/',
+                                            url: getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/warehouses/v1/warehouse/',
                                             type: 'is_consignee'
                                         }"
-                                        postUrl="/api/sudo/warehouses/v1/warehouse/"
+                                        :postUrl="getEnv('VUE_APP_AXIOS_DOMAIN') + '/api/sudo/warehouses/v1/warehouse/'"
                                         label="Enter Consignee Name Address or Zip"
                                     >
                                         <template v-slot:result="{data}">
@@ -967,7 +967,10 @@ export default {
             if(this.Load.carrier_fee)
                 this.Load.income -= parseFloat(this.Load.carrier_fee)
 
-        }
+        },
+	    getEnv(variable){
+		    return process.env[variable]
+	    }
 
     }
   }

@@ -947,7 +947,7 @@ export default {
         },
 	    getEnv(variable){
 			return process.env[variable]
-	    }
+		}
 
     }
   }
