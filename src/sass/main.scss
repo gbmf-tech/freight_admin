@@ -1,0 +1,198 @@
+@import '~vuetify/dist/vuetify.min.css';
+@import 'variables';
+@import 'overrides';
+@import '_fonts';
+
+.v-application{
+    font-family: Avenir Next Cyr !important;
+}
+.theme--light.v-app-bar.v-toolbar.v-sheet.bg-primary{
+    background: #5496F0;
+    color: #fff;
+    a, .v-btn{
+        color: #fff;
+    }
+}
+.remove-hover::before{
+    content: none !important;
+}
+.v-application.theme--light{
+    .v-main{
+        background: #eff4fb;
+    }
+
+    .theme--light.v-card{
+        color: #1f1f1f;
+        .v-card__text{
+            color: #1f1f1f;
+        }
+    }
+    .theme--light.v-text-field{
+        fieldset{
+            border: none;
+        }
+        input::placeholder{
+            font-size: 14px !important;
+            color: #808080 !important;
+        }
+    }
+    .theme--light.v-text-field.v-input--is-focused:not(.v-select){
+        fieldset{
+            border: 1px solid #808080;
+        }
+        input::placeholder{
+            font-size: 14px !important;
+            color: #808080 !important;
+        }
+        .v-input__slot.silver{
+            background: #FFFFFF !important;
+        }
+    }
+    .silver{
+        background-color: #EDF2F9;
+    }
+
+    .v-input__slot.silver{
+        background: #EDF2F9 !important;
+    }
+
+
+}
+.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active){
+    color: #B9B9B9 !important;
+    border-bottom: 2px #B9B9B9 solid;
+}
+.v-btn.primary{
+    background: linear-gradient(88.99deg, #FF9330 0.49%, #FF6523 99.13%);
+    border-radius: 5px;
+}
+.text-28-60{
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+}
+.text-22-60{
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+}
+.text-14-60{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+}
+.text-14{
+    font-size: 14px;
+    line-height: 22px;
+}
+.silver{
+    background-color: #EDF2F9;
+}
+.h-100{
+    height: 100%;
+}
+.w-100{
+    width: 100%;
+}
+.h-auto{
+    height: auto !important;
+}
+.v-application.theme--dark{
+    .theme--dark.v-app-bar.v-toolbar.v-sheet {
+        background-color: #192233;
+    }
+// #192233  #192233
+    .v-main{
+        background: #1d273a;
+    }
+    .bg-primary{
+        background: #192233;
+        background-color: #192233;
+        color: #fff;
+        a, .v-btn{
+            color: #fff;
+        }
+    }
+    .v-navigation-drawer{
+        background: #192233;
+
+    }
+    .theme--dark.v-card{
+        background: #212c42;
+        background-color: #212c42;
+    }
+    #dashboard-core-footer{
+        background-color: #192233;
+        border: none !important;
+    }
+    .theme--dark.v-data-table{
+        background: transparent !important;
+    }
+    td.text-start{
+        border-top: 1px solid #2C364A !important;
+        border-bottom: 1px solid #2C364A !important;
+    }
+}
+.theme--light.v-data-table {
+    color: #1f1f1f!important;
+}
+.v-data-table.theme--light > .v-data-table__wrapper > table > thead > tr > th{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #484848;
+}
+.pa-1.v-card.v-card--flat.v-sheet.theme--light{
+    background: #FFFFFF;
+}
+a{
+    text-decoration: none !important;
+}
+.box-shadow-none{
+    box-shadow: none !important;
+}
+.theme--dark.v-tabs-items {
+    background-color: transparent !important;
+}
+.v-btn.theme--dark.silver{
+    background-color: #2C364A!important;
+    color: #fff!important;
+}
+.v-btn.theme--light.silver{
+    background-color: #ECECEC!important;
+    color: #1F1F1F!important;
+}
+.v-btn.theme--light.borderedonly{
+    background-color: transparent!important;
+    color: #1f1f1f!important;
+}
+.createradiogroup{
+    margin: 0 !important;
+    .v-input--selection-controls__input{
+        display: none;
+    }
+    .v-input--radio-group__input{
+        display: flex;
+    }
+}
+.v-data-table > .v-data-table__wrapper > table > tbody > tr > td{
+    font-size: 14px !important;
+    font-weight: 400;
+}
+.bg-transparent{
+    background: transparent !important;
+    background-color: transparent !important;
+}
+.pointer{
+    cursor: pointer;
+}
+.text--blue{
+    color: #5496f0;
+}
+.text-transform-none{
+    text-transform: none !important;
+}
+.theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined):hover {
+    background-color: inherit;
+    color: inherit;
+}
