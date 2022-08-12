@@ -615,6 +615,7 @@
 <script>
 import { serialize } from 'object-to-formdata';
 
+import Vue from 'vue'
 import gettersMixin from '@/mixins/gettersMixin'
 import AutocompleteComponent from '@/components/Base/CustomAutocomplete'
 import DatepickerComponent from '@/components/Base/CustomDatepicker'

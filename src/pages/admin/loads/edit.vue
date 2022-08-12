@@ -864,7 +864,7 @@ export default {
             //     // formData.append('documents[' + index + '][id_type]', value.id_type);
             // });
             this.axios.post(process.env.VUE_APP_AXIOS_DOMAIN + '/api/sudo/loads/v1/load/' +  this.Load.id, formData).then(() => {
-                this.$router.push({ name: 'admin.loads.all' })
+                this.$router.push({ name: 'admin.loads.read', params: {id: this.Load.id}  })
             })
         },
 
